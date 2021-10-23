@@ -1,0 +1,62 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    overflow: hidden;
+}
+
+html {
+    background: #000;
+}
+
+body {
+    width: 100vw;
+    height: calc(56.25vw * 0.8);
+    background: #000;
+    /*margin: calc(56.25vw * 0.1) -25vw;*/
+}
+#band {
+    position: fixed;
+    width: 100vw;
+    height: 25.56vw;
+
+}
+/*#band:after {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0px;
+    content: ' ';
+    width: 100vw;
+    height: calc(56.25vw *0.8);
+    border: 0px solid #000;
+    border-width: calc(56.25vw *0.1) 0;
+}*/
+
+img, .img, video {
+    /*height: calc(56.25vw * 0.8);
+    width: 120vw;*/
+    width:  100vw;
+
+    transition-property: transform, filter;
+    transition-duration: 1000ms;
+    transition-timing-function: cubic-bezier(0.54, 0, 0, 1);
+    position: fixed;
+    /*top: calc(56.25vw * 0.1);*/
+    /*left: calc(-1*(150vw *0.8 - 100vw) /2);*/
+}
+
+.full {
+    height: 100vh !important;
+    width: 150vw !important;
+    left: -25vw !important;
+    top: 0px !important;
+}
+
+.blend-overlay { mix-blend-mode: overlay; }
+.blend-multiply { mix-blend-mode: multiply; }
+.blend-screen { mix-blend-mode: screen; }
+.flip-x { transform: scaleX(-1); }
+
+.hue-rotate-72 { filter: hue-rotate(72deg); }
