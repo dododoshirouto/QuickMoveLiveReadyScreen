@@ -26,6 +26,9 @@ if (typeof Math.normalizedRandom == 'undefined') Math.normalizedRandom = functio
 
 
 
+lite = true;
+
+
 
 function setGlitchSizeEvent() {
     for (let i = 0; i < document.querySelectorAll('.glitch_base').length; i = (0 | i + 1)) { setGlitchSize(document.querySelectorAll('.glitch_base')[0]); }
@@ -42,10 +45,9 @@ function setGlitchSize(img) {
 // $3 : imgのwidth
 // $4 : imgのheight
 // $5 : id
-// $6 : width
-// $7 : height
 // glitch_html_text = '<div class="glitch_root $2" style="width:$3px;height:$4px;"><img class="glitch_base glitch_red" src="$1"><img class="glitch_base glitch_blue" src="$1"><img class="glitch_base" src="$1"><div class="glitch_overlay"  style="width:$3px;height:$4px;"><img class="glitch_sub glitch_red" src="$1"><img class="glitch_sub glitch_blue" src="$1"><img class="glitch_sub" src="$1"><div class="glitch_mask"></div></div></div>';
-glitch_html_text = '<div class="glitch_root $2" style="width:$3px;height:$4px;" id="$5" width="$6" height="$7"><img class="glitch_base" src="$1"></img><img class="glitch_base glitch_red" src="$1"></img><img class="glitch_base glitch_blue" src="$1"></img><div class="glitch_overlay" style="width:$3px;height:$4px;"></img><img class="glitch_sub" src="$1"></img><img class="glitch_sub glitch_red" src="$1"></img><img class="glitch_sub glitch_blue" src="$1"></img><div class="glitch_mask"></div></div></div>';
+if (!lite) glitch_html_text = '<div class="glitch_root $2" style="width:$3px;height:$4px;" id="$5"><img class="glitch_base" src="$1"></img><img class="glitch_base glitch_red" src="$1"></img><img class="glitch_base glitch_blue" src="$1"></img><div class="glitch_overlay" style="width:$3px;height:$4px;"></img><img class="glitch_sub" src="$1"></img><img class="glitch_sub glitch_red" src="$1"></img><img class="glitch_sub glitch_blue" src="$1"></img><div class="glitch_mask"></div></div></div>';
+else glitch_html_text = '<div class="glitch_root $2" style="width:$3px;height:$4px;" id="$5"><img class="glitch_base" src="$1"></img><div class="glitch_overlay" style="width:$3px;height:$4px;"></img><img class="glitch_sub" src="$1"></img><div class="glitch_mask"></div></div></div>';
 
 function setGlitchHTML() {
     let glitch_elems = document.querySelectorAll('.glitch');
@@ -62,21 +64,29 @@ function setGlitchHTML() {
 }
 
 function glitchAnimation(glitch_elem) {
-    let base_red = glitch_elem.querySelector('.glitch_base.glitch_red');
-    let base_blue = glitch_elem.querySelector('.glitch_base.glitch_blue');
-    let sub_red = glitch_elem.querySelector('.glitch_sub.glitch_red');
-    let sub_blue = glitch_elem.querySelector('.glitch_sub.glitch_blue');
+    if (lite) {
+        var base = glitch_elem.querySelector('.glitch_base');
+        var sub = glitch_elem.querySelector('.glitch_sub');
+    } else {
+        var base_red = glitch_elem.querySelector('.glitch_base.glitch_red');
+        var base_blue = glitch_elem.querySelector('.glitch_base.glitch_blue');
+        var sub_red = glitch_elem.querySelector('.glitch_sub.glitch_red');
+        var sub_blue = glitch_elem.querySelector('.glitch_sub.glitch_blue');
+    }
     let overlay = glitch_elem.querySelector('.glitch_overlay');
     let mask = glitch_elem.querySelector('.glitch_mask');
 
     let misreg = Math.pow(Math.normalizedRandom(), 2) * (Math.random() < 0.3 ? -0.5 : 1);
-    let chromatic = Math.pow(Math.normalizedRandom(2), 1.5);
-    base_red.style.left = -chromatic * 2 + '%';
-    base_blue.style.left = chromatic * 3 + '%';
+    if (!lite) {
+        var chromatic = Math.pow(Math.normalizedRandom(2), 1.5);
+        base_red.style.left = -chromatic * 2 + '%';
+        base_blue.style.left = chromatic * 3 + '%';
+    }
 
     let is_not_glitch = Math.random() < 0.5;
     if (is_not_glitch) {
-        base_red.style.left = sub_red.style.left = base_blue.style.left = sub_blue.style.left = '0px';
+        if (lite) base.style.filter = sub.style.filter = ['url(\'#filter_glitch_1\')', 'url(\'#filter_glitch_2\')', 'url(\'#filter_glitch_3\')', 'none'][Math.floor(Math.random() * 3)];
+        else base_red.style.left = sub_red.style.left = base_blue.style.left = sub_blue.style.left = '0px';
         overlay.style.opacity = 0;
     } else {
         if (Math.random() < 0.5) mask.style.backgroundPosition = '0% $1%'.format(Math.random() * 100);
@@ -85,8 +95,10 @@ function glitchAnimation(glitch_elem) {
             mask.style.backgroundImage = "url('glitch/mask_$1.png')".format(maskNm);
         }
         overlay.style.left = misreg * 10 + '%';
-        sub_red.style.left = -(chromatic + misreg) * 2 + '%';
-        sub_blue.style.left = (chromatic + misreg) * 3 + '%';
+        if (!lite) {
+            sub_red.style.left = -(chromatic + misreg) * 2 + '%';
+            sub_blue.style.left = (chromatic + misreg) * 3 + '%';
+        }
         overlay.style.opacity = 1;
     }
 
@@ -98,7 +110,9 @@ function setGlitchAnimation() {
 }
 
 function setSvgFilter() {
-    if (typeof glitch_css == 'undefined') document.body.innerHTML += '<link id="glitch_css" rel="stylesheet" href="glitch/glitch.css"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><filter id="filter_red"><feColorMatrix type="matrix" values="1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><filter id="filter_green"><feColorMatrix type="matrix" values="0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><filter id="filter_blue"><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter></defs></svg>';
+    if (typeof glitch_css !== 'undefined') return;
+    document.body.innerHTML += '<link id="glitch_css" rel="stylesheet" href="glitch/glitch.css"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><filter id="filter_red"><feColorMatrix type="matrix" values="1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><filter id="filter_green"><feColorMatrix type="matrix" values="0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><filter id="filter_blue"><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter></defs></svg>';
+    document.body.innerHTML += '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><filter id="filter_glitch_1"><feColorMatrix type="matrix" in="SourceGraphic" result="red" values="1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0"/><feColorMatrix type="matrix" in="SourceGraphic" result="green" values="0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0"/><feColorMatrix type="matrix" in="SourceGraphic" result="blue" values="0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0"/><feOffset dx="3.5" dy="0"/><feBlend in="red" mode="screen"/><feOffset dx="-2" dy="0"/><feBlend in="green" mode="screen"/></filter><filter id="filter_glitch_2"><feColorMatrix type="matrix" in="SourceGraphic" result="red" values="1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0"/><feColorMatrix type="matrix" in="SourceGraphic" result="green" values="0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0"/><feColorMatrix type="matrix" in="SourceGraphic" result="blue" values="0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0"/><feOffset dx="-1.5" dy="0"/><feBlend in="red" mode="screen"/><feOffset dx="2.5" dy="0"/><feBlend in="green" mode="screen"/></filter><filter id="filter_glitch_3"><feColorMatrix type="matrix" in="SourceGraphic" result="red" values="1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0"/><feColorMatrix type="matrix" in="SourceGraphic" result="green" values="0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0"/><feColorMatrix type="matrix" in="SourceGraphic" result="blue" values="0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0"/><feOffset dx="3" dy="0"/><feBlend in="red" mode="screen"/><feOffset dx="-5" dy="0"/><feBlend in="green" mode="screen"/></filter></defs></svg>';
 }
 
 //debug

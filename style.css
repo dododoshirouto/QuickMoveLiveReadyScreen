@@ -37,15 +37,16 @@ body {
     border-width: calc(56.25vw *0.1) 0;
 }*/
 
-[data-z] {
+[data-z], [data-z].glitch_root {
     /*height: calc(56.25vw * 0.8);
     width: 120vw;*/
-    width:  100vw;
+    width: 100vw;
+    height: 56.25vw;
+    position: absolute;
 
     transition-property: transform, filter;
     transition-duration: 1000ms;
     transition-timing-function: cubic-bezier(0.54, 0, 0, 1);
-    position: fixed;
     /*top: calc(56.25vw * 0.1);*/
     /*left: calc(-1*(150vw *0.8 - 100vw) /2);*/
 }
@@ -66,8 +67,8 @@ body {
 
 
 
-#neon_road {
+/* #neon_road {
     position: absolute;
     width: 100vw;
     height: 56.25vw;
-}
+} */
