@@ -1,9 +1,9 @@
 
-    imgs = Array.from(document.querySelectorAll('[data-z]'));
     var anim = {
         'intv': -100,
         'fps': 60,
-        'setIntv': function(){
+        'setIntv': function () {
+            imgs = Array.from(document.querySelectorAll('[data-z]'));
             anim.stop();
             anim.main();
             return;
@@ -124,7 +124,7 @@
             }
         ]
     }
-    window.onload = ()=>{anim.setIntv();};
+    // window.addEventListener('load',()=>{anim.setIntv();});
 
 
     function setImgsDetail(x=0, y=0, scale=1, blur=0, brightness=1, contrast=1, sepia=0, focus=0) {

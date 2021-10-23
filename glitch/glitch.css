@@ -1,0 +1,72 @@
+.glitch_root {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    text-align: left;
+}
+.glitch_root>* {
+    position: absolute;
+}
+.glitch_root img {
+    max-width: 100%;
+    max-height: 100%;
+    will-change: left;
+}
+.glitch_mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-image: url('https://test.dodoneko.site/cssglitch/mask_1.png');
+    background-size: 100%;
+    image-rendering: pixelated;
+    will-change: background-image,background-position;
+}
+.glitch_overlay {
+    mix-blend-mode: darken;
+    pointer-events: none;
+    overflow: hidden;
+    will-change: left,opacity;
+}
+.glitch_sub {
+    position: absolute;
+    will-change: left;
+}
+.glitch_red {
+    filter: url('#filter_red');
+    mix-blend-mode: screen;
+    transform: scale(1.01);
+}
+.glitch_blue {
+    filter: url('#filter_blue');
+    mix-blend-mode: screen;
+    transform: scale(0.995);
+}
+.glitch_root:not(.no_chromatic) .glitch_green,
+.glitch_root:not(.no_chromatic) .glitch_base:not(.glitch_red):not(.glitch_blue),
+.glitch_root:not(.no_chromatic) .glitch_sub:not(.glitch_red):not(.glitch_blue) {
+    filter: url('#filter_green');
+}
+
+.no_glitch .glitch_base {
+    mix-blend-mode: normal !important;
+}
+
+.no_chromatic .glitch_red,
+.no_chromatic .glitch_blue,
+.no_glitch .glitch_overlay,
+.no_glitch .glitch_red,
+.no_glitch .glitch_blue {
+    opacity: 0;
+}
+.no_chromatic .glitch_base,
+.no_chromatic .glitch_sub,
+.no_glitch .glitch_base,
+.no_glitch .glitch_sub {
+    mix-blend-mode: normal !important;
+}
+
+/* .glitch_root:not(.no_chromatic) .glitch_sub:not(.glitch_red):not(.glitch_blue) {
+    opacity: 0;
+} */
