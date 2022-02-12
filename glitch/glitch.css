@@ -7,7 +7,7 @@
 .glitch_root>* {
     position: absolute;
 }
-.glitch_root video,
+.glitch_root video
 .glitch_root img {
     width: 100%;
     height: 100%;

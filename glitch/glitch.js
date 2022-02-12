@@ -36,8 +36,8 @@ function setGlitchSizeEvent() {
 }
 function setGlitchSize(img) {
     let base = img.parentElement;
-    base.style.height = base.getElementsByClassName('glitch_overlay')[0].style.height = img.offsetHeight + 'px';
-    base.style.width = base.getElementsByClassName('glitch_overlay')[0].style.width = img.offsetWidth + 'px';
+    base.style.height = base.getElementsByClassName('glitch_overlay')[0].style.height = Math.round(img.offsetHeight) + 'px';
+    base.style.width = base.getElementsByClassName('glitch_overlay')[0].style.width = Math.round(img.offsetWidth) + 'px';
 }
 
 // $1 : 画像アドレス
@@ -56,7 +56,7 @@ function setGlitchHTML() {
         let img_classes = glitch_elems[i].className;
         let width = glitch_elems[i].clientWidth;
         let height = glitch_elems[i].clientHeight;
-        glitch_elems[i].outerHTML = glitch_html_text.split('img').join(glitch_elems[i].tagName).format(img_src, img_classes, glitch_elems[i].offsetWidth, glitch_elems[i].offsetHeight, glitch_elems[i].id, width, height);
+        glitch_elems[i].outerHTML = glitch_html_text.split('img').join(glitch_elems[i].tagName).format(img_src, img_classes, Math.round(glitch_elems[i].offsetWidth), Math.round(glitch_elems[i].offsetHeight), glitch_elems[i].id, Math.round(width), Math.round(height));
     }
 
     setSvgFilter();
