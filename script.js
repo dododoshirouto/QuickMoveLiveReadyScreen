@@ -138,19 +138,23 @@
     function randomRange(a, b=0) { return a + (b-a)*(Math.cos(Math.random()*Math.PI)/2+0.5); }
 
 
-
+    setTextStrokeDatas = {};
     function setTextStroke(elem, color='red', width=3, w_unit='px', detail=8) {
         let shadow_value = [];
         let rotate = 0;
-        for(let i=0; i<detail; i=(i+1|0)) {
-            shadow_value.push( [
-                (Math.sin(rotate)*width).toFixed(3) + w_unit,
-                (Math.cos(rotate)*width).toFixed(3) + w_unit,
-                color
-            ].join(' '));
-            rotate += Math.PI * 2 / detail;
+        const data_index = [color, width, w_unit, detail].join();
+        if (!setTextStrokeDatas[data_index]) {
+            for(let i=0; i<detail; i=(i+1|0)) {
+                shadow_value.push( [
+                    (Math.sin(rotate)*width).toFixed(3) + w_unit,
+                    (Math.cos(rotate)*width).toFixed(3) + w_unit,
+                    color
+                ].join(' '));
+                rotate += Math.PI * 2 / detail;
+            }
+            setTextStrokeDatas[data_index] = shadow_value.join(',');
         }
 
-        elem.style.textShadow = shadow_value.join(',');
-        return shadow_value.join(',');
+        elem.style.textShadow = setTextStrokeDatas[data_index];
+        return setTextStrokeDatas[data_index];
     }
