@@ -141,15 +141,14 @@
 
     function setTextStroke(elem, color='red', width=3, w_unit='px', detail=8) {
         let shadow_value = [];
-        const once_rotate = Math.PI * 2 / detail;
         let rotate = 0;
         for(let i=0; i<detail; i=(i+1|0)) {
-            if (i!=0) shadow_value += ',';
             shadow_value.push( [
                 (Math.sin(rotate)*width).toFixed(3) + w_unit,
                 (Math.cos(rotate)*width).toFixed(3) + w_unit,
                 color
             ].join(' '));
+            rotate += Math.PI * 2 / detail;
         }
 
         elem.style.textShadow = shadow_value.join(',');
