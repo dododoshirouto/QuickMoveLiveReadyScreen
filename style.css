@@ -79,10 +79,10 @@ body {
     font-size: 6vw;
     text-align: center;
     font-weight: 800;
-    /* text-shadow: 0.1em 0.1em purple, -0.1em 0.1em purple, 0.1em -0.1em purple, -0.1em -0.1em purple,
-        0em 0.1em purple, 0em -0.1em purple, 0.1em 0em purple, -0.1em 0em purple; */
+    text-shadow: 0.1em 0.1em purple, -0.1em 0.1em purple, 0.1em -0.1em purple, -0.1em -0.1em purple,
+        0em 0.1em purple, 0em -0.1em purple, 0.1em 0em purple, -0.1em 0em purple;
     
-  text-stroke: 0.1em purple;
-  -webkit-text-stroke: 0.1em purple;
+  /* text-stroke: 0.1em purple;
+  -webkit-text-stroke: 0.1em purple; */
     top: 18vw;
 }
