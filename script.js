@@ -2,10 +2,11 @@
     var anim = {
         'intv': -100,
         'fps': 60,
-        'setIntv': function () {
+        'setIntv': function (func=_=>{}) {
             imgs = Array.from(document.querySelectorAll('[data-z]'));
             anim.stop();
             anim.main();
+            func();
             return;
         },
         'stop': ()=>{
