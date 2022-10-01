@@ -146,8 +146,8 @@
         for(let i=0; i<detail; i=(i+1|0)) {
             if (i!=0) shadow_value += ',';
             shadow_value.push( [
-                (Math.sin(rotate)*width) + w_unit,
-                (Math.cos(rotate)*width) + w_unit,
+                (Math.sin(rotate)*width).toFixed(3) + w_unit,
+                (Math.cos(rotate)*width).toFixed(3) + w_unit,
                 color
             ].join(' '));
         }
