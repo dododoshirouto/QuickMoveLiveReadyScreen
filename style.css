@@ -72,3 +72,14 @@ body {
     width: 100vw;
     height: 56.25vw;
 } */
+
+
+.title_text.kyoto_stadium {
+    color: white;
+    font-size: 6vw;
+    text-align: center;
+    font-weight: 800;
+    text-shadow: 0.1em 0.1em purple, -0.1em 0.1em purple, 0.1em -0.1em purple, -0.1em -0.1em purple,
+        0em 0.1em purple, 0em -0.1em purple, 0.1em 0em purple, -0.1em 0em purple;
+    top: 18vw;
+}
