@@ -6,13 +6,15 @@
             imgs = Array.from(document.querySelectorAll('[data-z]'));
             anim.stop();
             anim.main();
-            func();
+            anim.intvAfterFunc = func;
             return;
         },
+        'intvAfterFunc':()=>{},
         'stop': ()=>{
             if (anim.intv>0) cancelAnimationFrame(anim.intv);
         },
         'main': function(){
+            anim.intv = requestAnimationFrame(anim.main);
             if (anim.lastCurrentTime>0) anim.fps = 1000/(Date.now() - anim.lastCurrentTime);
             anim.lastCurrentTime = Date.now();
             if (anim.animId<0) {
@@ -26,7 +28,7 @@
             anim.animTime += 1000.0/anim.fps;
 
             // img_red_dust.style.backgroundPositionX = (anim.time/500)%100 +'%';
-            anim.intv = requestAnimationFrame(anim.main);
+            anim.intvAfterFunc();
         },
         'time': 0.0,
         'lastCurrentTime': -1,
