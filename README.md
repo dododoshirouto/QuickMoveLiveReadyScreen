@@ -9,4 +9,8 @@ https://dododoshirouto.github.io/QuickMoveLiveReadyScreen/%E8%93%8B%E7%B5%B5_%E4
 
 https://dododoshirouto.github.io/QuickMoveLiveReadyScreen/%E8%93%8B%E7%B5%B5_%E4%BA%AC%E9%83%BDe%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%84%20%E5%AE%9F%E6%B3%81%E8%A7%A3%E8%AA%AC%E3%83%96%E3%83%BC%E3%83%88%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97.html
 
+NASEF MAJOR VALORANT Tournament Autumn 2022 の蓋絵
+
+https://dododoshirouto.github.io/QuickMoveLiveReadyScreen/蓋絵_NASEF_MAJOR_VALORANT_TOURNAMENT_AUTUMN_2022.html
+
 1280x720 専用です
