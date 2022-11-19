@@ -13,4 +13,8 @@ NASEF MAJOR VALORANT Tournament Autumn 2022 の蓋絵
 
 https://dododoshirouto.github.io/QuickMoveLiveReadyScreen/蓋絵_NASEF_MAJOR_VALORANT_TOURNAMENT_AUTUMN_2022.html
 
+蓋絵_NASEF_MAJOR_ブートキャンプ_2022
+
+https://dododoshirouto.github.io/QuickMoveLiveReadyScreen/蓋絵_NASEF_MAJOR_ブートキャンプ_2022.html
+
 1280x720 専用です
