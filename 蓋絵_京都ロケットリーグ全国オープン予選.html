@@ -13,9 +13,9 @@
         <img id="moyou_white" data-z="0.15" data-bright="0.0" src="模様_下_白.png">
         <img id="moyou_blue" data-z="0.10" data-bright="0.0" src="模様_両サイド_紺色.png">
         <!-- <img id="moyou_blue" data-z="0.80" data-bright="0.0" src="京都eスポーツ文化祭_中央.png"> -->
-        <p id="title_text" class="title_text kyoto_stadium" data-z="0.77"><br><br>予選</p>
-        <p id="title_text" class="title_text kyoto_stadium" data-z="0.79">京都ロケットリーグ<br><br></p>
-        <p id="title_text" class="title_text kyoto_stadium" data-z="0.85"><br>全国オープン<br></p>
+        <p id="title_text1" class="title_text kyoto_stadium" data-z="0.77"><br><br>予選</p>
+        <p id="title_text2" class="title_text kyoto_stadium" data-z="0.79">京都ロケットリーグ<br><br></p>
+        <p id="title_text3" class="title_text kyoto_stadium" data-z="0.85"><br>全国オープン<br></p>
 
         <script src="script.js"></script>
         <script src="glitch/glitch.js"></script>
@@ -33,7 +33,9 @@
                 });
             });
             anim.setIntv(_=>{
-                setTextStroke(title_text, 'purple', 0.13, 'em', 16);
+                setTextStroke(title_text1, 'purple', 0.13, 'em', 16);
+                setTextStroke(title_text2, 'purple', 0.13, 'em', 16);
+                setTextStroke(title_text3, 'purple', 0.13, 'em', 16);
             });
 
         });</script>

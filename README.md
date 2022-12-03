@@ -17,7 +17,7 @@ https://dododoshirouto.github.io/QuickMoveLiveReadyScreen/蓋絵_NASEF_MAJOR_VAL
 
 https://dododoshirouto.github.io/QuickMoveLiveReadyScreen/蓋絵_NASEF_MAJOR_ブートキャンプ_2022.html
 
-蓋絵_NASEF_MAJOR_ブートキャンプ_2022
+京都ロケットリーグ全国オープン予選
 
 https://dododoshirouto.github.io/QuickMoveLiveReadyScreen/蓋絵_京都ロケットリーグ全国オープン予選.html
 
