@@ -21,4 +21,8 @@ https://dododoshirouto.github.io/QuickMoveLiveReadyScreen/蓋絵_NASEF_MAJOR_ブ
 
 https://dododoshirouto.github.io/QuickMoveLiveReadyScreen/蓋絵_京都ロケットリーグ全国オープン予選.html
 
+京都ロケットリーグ全国オープン本戦
+
+https://dododoshirouto.github.io/QuickMoveLiveReadyScreen/蓋絵_京都ロケットリーグ全国オープン本戦.html
+
 1280x720 専用です
