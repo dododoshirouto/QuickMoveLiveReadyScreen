@@ -76,7 +76,7 @@ body {
 
 .title_text.kyoto_stadium {
     color: white;
-    font-size: 4vw;
+    font-size: 6vw;
     text-align: center;
     font-weight: 800;
     
@@ -85,13 +85,13 @@ body {
     top: 12vw;
 }
 .title_text.kyoto_stadium:last-of-type {
-    font-size: 6vw;
+    font-size: 8vw;
     top: 7.5vw;
 }
 
-#samga_chara {
+/* #samga_chara {
     width: auto;
     left: -11vw;
     top: 6vw;
     height: 130vw;
-}
+} */
